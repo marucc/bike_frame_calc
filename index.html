@@ -7,7 +7,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="">
+<link rel="manifest" href="manifest.json">
 <script src="./vue.min.js"></script>
 <script src="./lodash.min.js"></script>
 <style>
@@ -90,6 +90,15 @@ h1 {
   </div>
 </div>
 <script>
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service_worker.js').then(function(registration) {
+    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+  }).catch(function(err) {
+    console.log('ServiceWorker registration failed: ', err);
+  });
+}
+
 var data = {
   frameSize: '540',
   slopeSize: '40',
