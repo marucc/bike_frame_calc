@@ -7,6 +7,8 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="./favicon.ico">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="./manifest.json">
 <script src="./vue.min.js"></script>
 <script src="./lodash.min.js"></script>
@@ -277,7 +279,7 @@ var drow = _.debounce(function () {
   var topTubeAngle = isSloping ? Math.atan2(seatTubeHeight - seatTubeRealHeight, horizontalTopTube - (seatTubeOffsetX - seatTubeRealOffsetX)) * (180 / Math.PI) : 0;
 
   // Down Tube Angle
-  downAngle = Math.atan2(bbX - headDownTubeY, bbY - headDownTubeY) * (180 / Math.PI);
+  downAngle = Math.atan2(bbX - headDownTubeX, bbY - headDownTubeY) * (180 / Math.PI);
 
   // Head Tube - Top Tube Angle
   headTopAngle = headAngle + topTubeAngle;
