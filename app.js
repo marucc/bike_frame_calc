@@ -158,10 +158,11 @@ var drow = _.debounce(function () {
   drowLine(context, true, headDownTubeX, headDownTubeY, bbX - headDownTubeX, bbY - headDownTubeY);
 
   // Front - Center
-  frontCenter = bbX - frontX;
-  drowLine(context, false, frontX, frontY - 40, 0, 80);
+  frontCenter = Math.sqrt(Math.pow(bbX - frontX, 2) + Math.pow(bbY - frontY, 2));
+  drowLine(context, false, frontX, frontY - 20, 0, 40);
   drowLine(context, false, bbX - 40, bbY, 80, 0);
-  drowLine(context, false, bbX, bbY - bbDrop - 30, 0, 60 + bbDrop);
+  drowLine(context, false, bbX, bbY - 40, 0, 80);
+  drowLine(context, false, frontX, frontY, bbX - frontX, bbY - frontY);
 
   // Top Tube Angle
   var topTubeAngle = isSloping ? Math.atan2(seatTubeHeight - seatTubeRealHeight, horizontalTopTube - (seatTubeOffsetX - seatTubeRealOffsetX)) * (180 / Math.PI) : 0;
