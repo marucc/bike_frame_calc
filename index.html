@@ -11,6 +11,9 @@
 <script src="./vue.min.js"></script>
 <script src="./lodash.min.js"></script>
 <style>
+* {
+  font-family:"游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,sans-serif;
+}
 .container {
   display: flex;
 }
@@ -55,6 +58,11 @@ input[readonly] {
 }
 h1 {
   font-size: 22px;
+  margin-bottom: 0;
+}
+button {
+  padding: 0.5em 2em;
+  font-size: 14px;
 }
 </style>
 </head>
@@ -67,6 +75,7 @@ h1 {
     </div>
     <div class="item form">
       <ul>
+        <li><button v-on:click="reset()">Reset</button></li>
         <li v-bind:class="{ error: errors.frameSize }"><label>フレームサイズ: </label><input type="number" v-model="frameSize" pattern="\d*" />mm</li>
         <li v-bind:class="{ error: errors.slopeSize }"><label>スローピング マイナス長: </label><input type="number" v-model="slopeSize" pattern="\d*" />mm</li>
         <li v-bind:class="{ error: errors.horizontalTopTube }"><label>水平換算トップチューブ長: </label><input type="number" v-model="horizontalTopTube" pattern="\d*" />mm</li>
@@ -99,7 +108,7 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-var data = {
+var defaultData = {
   frameSize: '540',
   slopeSize: '40',
   horizontalTopTube: '540',
@@ -112,7 +121,9 @@ var data = {
   headTubeUp: '20',
   headTubeDown: '20',
   forkSize: '350',
+};
 
+var data = Object.assign({
   headTube: null,
   downAngle: null,
   frontCenter: null,
@@ -121,7 +132,7 @@ var data = {
 
   errors: {
   },
-};
+}, defaultData, {});
 var scale = 0.5;
 var drowLine = function (context, isFrame, startX, startY, relativeEndX, relativeEndY) {
   var lineColor = isFrame ? 'black' : 'blue';
@@ -305,6 +316,14 @@ var app = new Vue({
   },
   created: function () {
     drow();
+  },
+  methods: {
+    reset: function () {
+      _.forEach(_.keys(defaultData), function (key) {
+        this.data[key] = defaultData[key];
+      });
+      drow();
+    },
   },
 });
 </script>
