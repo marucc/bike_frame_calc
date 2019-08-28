@@ -7,12 +7,12 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="./favicon.ico?2019082800">
-<link rel="apple-touch-icon" href="./apple-touch-icon.png?2019082800" sizes="180x180">
-<link rel="manifest" href="./manifest.json?2019082800">
-<script src="./vue.min.js?2019082800"></script>
-<script src="./lodash.min.js?2019082800"></script>
-<link rel="stylesheet" href="style.css?2019082800">
+<link rel="icon" href="./favicon.ico">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="./manifest.json">
+<script src="./vue.min.js"></script>
+<script src="./lodash.min.js"></script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <h1>フレーム計算</h1>
@@ -49,12 +49,14 @@
 <script>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service_worker.js').then(function(registration) {
-    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    registration.onupdatefound = function() {
+      registration.update();
+    };
   }).catch(function(err) {
-    console.log('ServiceWorker registration failed: ', err);
+    console.error('ServiceWorker registration failed: ', err);
   });
 }
 </script>
-<script src="./app.js?2019082800"></script>
+<script src="./app.js"></script>
 </body>
 </html>

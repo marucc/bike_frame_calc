@@ -22,7 +22,23 @@ self.addEventListener('fetch', function(event) {
     caches
       .match(event.request)
       .then(function(response) {
-        return response ? response : fetch(event.request);
+        var online = navigator.onLine;
+        if (online) {
+          var fetchRequest = event.request.clone();
+          return fetch(fetchRequest).then(function(response) {
+            if(!response || response.status !== 200 || response.type !== 'basic') {
+              return response;
+            }
+            var responseToCache = response.clone();
+            caches.open(CACHE_NAME)
+              .then(function(cache) {
+                cache.put(event.request, responseToCache);
+              });
+            return response;
+          });
+        } else {
+          return response ? response : fetch(event.request);
+        }
       })
   );
 });

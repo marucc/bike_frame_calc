@@ -167,7 +167,7 @@ var drow = _.debounce(function () {
   var topTubeAngle = isSloping ? Math.atan2(seatTubeHeight - seatTubeRealHeight, horizontalTopTube - (seatTubeOffsetX - seatTubeRealOffsetX)) * (180 / Math.PI) : 0;
 
   // Down Tube Angle
-  downAngle = Math.atan2(bbX - headDownTubeX, bbY - headDownTubeY) * (180 / Math.PI);
+  downAngle = Math.atan2(bbX - headDownTubeX, bbY - headDownTubeY) * (180 / Math.PI) + (90 - headAngle);
 
   // Head Tube - Top Tube Angle
   headTopAngle = headAngle + topTubeAngle;
@@ -212,7 +212,15 @@ var app = new Vue({
       _.forEach(_.keys(defaultData), function (key) {
         this.data[key] = defaultData[key];
       });
-      drow();
+      if (navigator.onLine && 'serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration()
+          .then(registration => {
+            registration.unregister();
+          })
+        location.reload(true)
+      } else {
+        drow();
+      }
     },
   },
 });
