@@ -3,6 +3,8 @@ var urlsToCache = [
     '/bike_frame_calc/',
     '/bike_frame_calc/lodash.min.js',
     '/bike_frame_calc/vue.min.js',
+    '/bike_frame_calc/app.js',
+    '/bike_frame_calc/style.css',
 ];
 
 self.addEventListener('install', function(event) {
