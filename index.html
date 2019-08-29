@@ -29,17 +29,17 @@
         <li v-bind:class="{ error: errors.horizontalTopTube }"><label>水平換算トップチューブ長: </label><input type="number" v-model="horizontalTopTube" pattern="\d*" />mm</li>
         <li v-bind:class="{ error: errors.seatAngle }"><label>シート角度: </label><input type="number" v-model="seatAngle" pattern="\d*" />°</li>
         <li v-bind:class="{ error: errors.headAngle }"><label>ヘッド角度: </label><input type="number" v-model="headAngle" pattern="\d*" />°</li>
-        <li v-bind:class="{ error: errors.forkOffset }"><label>フォークオフセット: </label><input type="number" v-model="forkOffset" pattern="\d*" />mm</li>
         <li v-bind:class="{ error: errors.bbDrop }"><label>ハンガー下がり: </label><input type="number" v-model="bbDrop" pattern="\d*" />mm</li>
-        <li v-bind:class="{ error: errors.headCrown }"><label>ヘッド クラウン: </label><input type="number" v-model="headCrown" pattern="\d*" />mm</li>
-        <li v-bind:class="{ error: errors.headParts }"><label>ヘッドパーツ: </label><input type="number" v-model="headParts" pattern="\d*" />mm</li>
+        <li v-bind:class="{ error: errors.forkOffset }"><label>フォークオフセット: </label><input type="number" v-model="forkOffset" pattern="\d*" />mm</li>
         <li v-bind:class="{ error: errors.headTubeUp }"><label>ヘッドチューブ 上サイズ: </label><input type="number" v-model="headTubeUp" pattern="\d*" />mm</li>
         <li v-bind:class="{ error: errors.headTubeDown }"><label>ヘッドチューブ 下サイズ: </label><input type="number" v-model="headTubeDown" pattern="\d*" />mm</li>
+        <li v-bind:class="{ error: errors.headParts }"><label>ヘッドパーツ: </label><input type="number" v-model="headParts" pattern="\d*" />mm</li>
+        <li v-bind:class="{ error: errors.headCrown }"><label>ヘッド クラウン: </label><input type="number" v-model="headCrown" pattern="\d*" />mm</li>
         <li v-bind:class="{ error: errors.forkSize }"><label>フォーク長: </label><input type="number" v-model="forkSize" pattern="\d*" />mm</li>
         <li class="border"></li>
         <li v-bind:class="{ error: errors.headTube }"><label>ヘッドチューブ: </label><input type="number" v-model="headTube" readonly />mm</li>
-        <li v-bind:class="{ error: errors.downAngle }"><label>ダウン角度: </label><input type="number" v-model="downAngle" readonly />°</li>
         <li v-bind:class="{ error: errors.frontCenter }"><label>フロント-センター: </label><input type="number" v-model="frontCenter" readonly />mm</li>
+        <li v-bind:class="{ error: errors.downAngle }"><label>ダウン角度: </label><input type="number" v-model="downAngle" readonly />°</li>
         <li v-bind:class="{ error: errors.headTopAngle }"><label>ヘッド - トップ角度: </label><input type="number" v-model="headTopAngle" readonly />°</li>
         <li v-bind:class="{ error: errors.topSeatAngle }"><label>トップ - シート角度: </label><input type="number" v-model="topSeatAngle" readonly />°</li>
       </ul>
