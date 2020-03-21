@@ -87,10 +87,10 @@ var drow = _.debounce(function () {
   app.errors.headAngle = (headAngle === '' || headAngle < 60 || 85 < headAngle);
   app.errors.bbDrop = (bbDrop === '' || bbDrop < 0 || 100 < bbDrop);
   app.errors.forkOffset = (forkOffset === '' || forkOffset < 0 || 100 < forkOffset);
-  app.errors.headTubeUp = (headTubeUp === '' || headTubeUp < 0 || 40 < headTubeUp);
-  app.errors.headTubeDown = (headTubeDown === '' || headTubeDown < 0 || 40 < headTubeDown);
-  app.errors.headParts = (headParts === '' || headParts < 0 || 40 < headParts);
-  app.errors.headCrown = (headCrown === '' || headCrown < 0 || 40 < headCrown);
+  app.errors.headTubeUp = (headTubeUp === '' || headTubeUp < 0 || 100 < headTubeUp);
+  app.errors.headTubeDown = (headTubeDown === '' || headTubeDown < 0 || 100 < headTubeDown);
+  app.errors.headParts = (headParts === '' || headParts < 0 || 100 < headParts);
+  app.errors.headCrown = (headCrown === '' || headCrown < 0 || 100 < headCrown);
   app.errors.forkSize = (forkSize === '' || forkSize < 15 || 400 < forkSize);
   if (_.values(app.errors).filter(function (v) { return v }).length) {
     return;
