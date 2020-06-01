@@ -80,18 +80,18 @@ var drow = _.debounce(function () {
   } = app;
 
   app.errors = {};
-  app.errors.frameSize = (frameSize === '' || frameSize < 200 || 700 < frameSize);
+  app.errors.frameSize = (frameSize === '' || frameSize < 100 || 900 < frameSize);
   app.errors.slopeSize = (slopeSize === '' || slopeSize < 0 || (frameSize && frameSize / 2 < slopeSize));
-  app.errors.horizontalTopTube = (horizontalTopTube === '' || horizontalTopTube < 200 || 700 < horizontalTopTube);
+  app.errors.horizontalTopTube = (horizontalTopTube === '' || horizontalTopTube < 200 || 900 < horizontalTopTube);
   app.errors.seatAngle = (seatAngle === '' || seatAngle < 60 || 85 < seatAngle);
   app.errors.headAngle = (headAngle === '' || headAngle < 60 || 85 < headAngle);
-  app.errors.bbDrop = (bbDrop === '' || bbDrop < 0 || 100 < bbDrop);
-  app.errors.forkOffset = (forkOffset === '' || forkOffset < 0 || 100 < forkOffset);
-  app.errors.headTubeUp = (headTubeUp === '' || headTubeUp < 0 || 100 < headTubeUp);
-  app.errors.headTubeDown = (headTubeDown === '' || headTubeDown < 0 || 100 < headTubeDown);
-  app.errors.headParts = (headParts === '' || headParts < 0 || 100 < headParts);
-  app.errors.headCrown = (headCrown === '' || headCrown < 0 || 100 < headCrown);
-  app.errors.forkSize = (forkSize === '' || forkSize < 15 || 400 < forkSize);
+  app.errors.bbDrop = (bbDrop === '' || bbDrop < 0 || 200 < bbDrop);
+  app.errors.forkOffset = (forkOffset === '' || forkOffset < 0 || 200 < forkOffset);
+  app.errors.headTubeUp = (headTubeUp === '' || headTubeUp < 0 || 200 < headTubeUp);
+  app.errors.headTubeDown = (headTubeDown === '' || headTubeDown < 0 || 200 < headTubeDown);
+  app.errors.headParts = (headParts === '' || headParts < 0 || 200 < headParts);
+  app.errors.headCrown = (headCrown === '' || headCrown < 0 || 200 < headCrown);
+  app.errors.forkSize = (forkSize === '' || forkSize < 15 || 600 < forkSize);
   if (_.values(app.errors).filter(function (v) { return v }).length) {
     return;
   }
